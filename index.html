@@ -2,10 +2,78 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=\, initial-scale=1.0">
-    <title>Judul HTML</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Saya</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        section {
+            background-color: #fff;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+            text-align: left;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+        }
+    </style>
 </head>
 <body>
-    <p>Ini adalah contoh teks dalam sebuah paragraf.</p>
+    <div class="container">
+        <header>
+            <h1>Profil Saya</h1>
+        </header>
+
+        <section id="profil">
+            <h2>Data Pribadi</h2>
+            <img src="Foto Mahdy.jpg" alt="Foto Profil Anda" width="100">
+            <p>Nama: Muhammad Mahdy Yandra</p>
+            <p>Hobi: Bernafas</p>
+        </section>
+
+        <section id="github">
+            <h2>GitHub Repository</h2>
+            <p>Monggo kunjungi <a href="https://github.com/Mahdyandra7">GitHub Repo Saya</a>.</p>
+        </section>
+
+        <section id="portfolio">
+            <h2>Portofolio</h2>
+            <p>Ini adalah beberapa proyek yang pernah saya kerjakan:</p>
+            <ul>
+                <li><a href="https://github.com/Mahdyandra7/Kelompok9_Alpro2">Project Kelompok 9 Alpro 2</a></li>
+                <li><a href="https://github.com/Mahdyandra7/Praktikum_Alpro2">Praktikum Alpro 2</a></li>
+            </ul>
+        </section>
+    </div>
+
+    <footer>
+        <p>Terima kasih telah mengunjungi profil saya.</p>
+    </footer>
 </body>
 </html>
