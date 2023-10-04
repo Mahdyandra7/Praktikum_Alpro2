@@ -3,77 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profil Saya</title>
+    <title>Data Coffee</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 0;
-            padding: 0;
-            background-color: #f0f0f0;
-        }
-
-        header {
-            background-color: #333;
-            color: #fff;
-            padding: 20px 0;
-        }
-
-        h1 {
-            margin: 0;
-        }
-
-        section {
-            background-color: #fff;
-            padding: 20px;
-            margin: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-            text-align: left;
-        }
-
-        img {
-            max-width: 100%;
-            height: auto;
-        }
-
-        footer {
-            background-color: #333;
-            color: #fff;
-            padding: 10px 0;
-        }
+        /* Tambahkan CSS sesuai kebutuhan Anda */
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Profil Saya</h1>
-        </header>
-
-        <section id="profil">
-            <h2>Data Pribadi</h2>
-            <img src="Foto_Mahdy.jpg" alt="Foto Profil Anda" width="100">
-            <p>Nama: Muhammad Mahdy Yandra</p>
-            <p>Hobi: Bernafas</p>
-        </section>
-
-        <section id="github">
-            <h2>GitHub Repository</h2>
-            <p>Monggo kunjungi <a href="https://github.com/Mahdyandra7">GitHub Repo Saya</a>.</p>
-        </section>
-
-        <section id="portfolio">
-            <h2>Portofolio</h2>
-            <p>Ini adalah beberapa proyek yang pernah saya kerjakan:</p>
-            <ul>
-                <li><a href="https://github.com/Mahdyandra7/Kelompok9_Alpro2">Project Kelompok 9 Alpro 2</a></li>
-                <li><a href="https://github.com/Mahdyandra7/Praktikum_Alpro2">Praktikum Alpro 2</a></li>
-            </ul>
-        </section>
+    <h1>Data Coffee</h1>
+    <input type="text" id="urlInput" placeholder="Masukkan URL">
+    <button onclick="getData()">Ambil Data</button>
+    <div id="dataContainer">
+        <!-- Data akan ditampilkan di sini -->
     </div>
 
-    <footer>
-        <p>Terima kasih telah mengunjungi profil saya.</p>
-    </footer>
+    <script>
+        function getData() {
+            const urlInput = document.getElementById('urlInput').value;
+            const dataContainer = document.getElementById('dataContainer');
+
+            // Gunakan AJAX (fetch) atau Axios untuk mengambil data dari URL
+            fetch(urlInput)
+                .then(response => response.json())
+                .then(data => {
+                    // Buat tabel HTML untuk menampilkan data
+                    let tableHTML = '<table border="1"><tr>';
+                    for (const key in data[0]) {
+                        tableHTML += `<th>${key}</th>`;
+                    }
+                    tableHTML += '</tr>';
+
+                    data.forEach(item => {
+                        tableHTML += '<tr>';
+                        for (const key in item) {
+                            tableHTML += `<td>${item[key]}</td>`;
+                        }
+                        tableHTML += '</tr>';
+                    });
+
+                    tableHTML += '</table>';
+                    dataContainer.innerHTML = tableHTML;
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    dataContainer.innerHTML = 'Gagal mengambil data.';
+                });
+        }
+    </script>
 </body>
 </html>
